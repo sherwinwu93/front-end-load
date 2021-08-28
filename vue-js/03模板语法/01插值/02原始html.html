@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>使用文本:{{ rawHtml }}</p>
+    <p>使用原始html: <span v-html="rawHtml"></span></p>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            rawHtml: '<span style="color: red">必须是红的</span>'
+        }
+    })
+</script>
+</body>
+</html>

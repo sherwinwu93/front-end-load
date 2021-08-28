@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <gan-item
+                v-for="gan in gans"
+                v-bind:gan="gan"
+                v-bind:key="gan.id"
+        ></gan-item>
+    </ol>
+</div>
+<script>
+    Vue.component('gan-item', {
+        props: ['gan'],
+        template: '<li>{{gan.text}}</li>'
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            gans: [
+                {id: 1, text: '学java'},
+                {id: 2, text: '学js'},
+                {id: 3, text: '学c'}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

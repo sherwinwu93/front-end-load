@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <title>XMLHttp</title>
+</head>
+<body>
+<script>
+    $.ajax('http://localhost:9209/rest/test2/testPost', {
+        method: 'POST',
+        data: {"x": "3"},
+        dataType: 'json',
+    }).done(function (data) {
+        console.log(data);
+    }).fail(function (xhr, status) {
+        console.log(xhr.status);
+        console.log(status);
+    }).always(function () {
+        console.log("一定会执行");
+    })
+</script>
+</body>
+</html>
