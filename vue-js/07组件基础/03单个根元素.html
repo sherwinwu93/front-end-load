@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <blog-item
+                v-for="blog in blogs"
+                v-bind:blog="blog"
+                v-bind:key="blog.id"
+        ></blog-item>
+    </ul>
+</div>
+<script>
+    Vue.component('blog-item', {
+        props: ['blog'],
+        template: `
+                <div class="blog-item">
+                    <h3>{{blog.title}}</h3>
+                    <div v-html="blog.content"></div>
+                </div>
+        `
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            blogs: [
+                {
+                    id: 1,
+                    title: 'wu sd',
+                    content: '<span style="color: red">java</span>'
+                },
+                {
+                    id: 2,
+                    title: 'li j',
+                    content: '<span style="color: red">服装</span>'
+                },
+                {
+                    id: 3,
+                    title: 'wu miumiu',
+                    content: '<span style="color: red">miao miao</span>'
+                }
+            ]
+        }
+    });
+</script>
+</body>
+</html>

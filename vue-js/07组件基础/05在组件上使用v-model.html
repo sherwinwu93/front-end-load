@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    <custom-button v-bind:value="searchText" v-on:input="searchText = $event"></custom-button>-->
+    <custom-button v-model="searchText"></custom-button>
+</div>
+<script>
+    Vue.component('custom-button', {
+        props:['value'],
+        template: `
+            <input v-bind:value="value" v-on:input="$emit('input', $event.target.value)">
+        `
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            searchText: ''
+        }
+    });
+</script>
+</body>
+</html>
